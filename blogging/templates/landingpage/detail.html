@@ -1,0 +1,56 @@
+{% extends 'landingpage/base.html' %}
+{% load static %}
+{% block content %}
+<div class="card card-body shadow-xl mx-3 mx-md-4 mt-n6">
+    <!-- START Blogs w/ 3 images & quote & text -->
+    <section class="py-5 mt-5">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 ms-auto me-auto">
+            <h6 class="opacity-7 text-uppercase font-weight-bolder text-sm">{{ artikel.kategori}}</h6>
+            <img src="{{ artikel.gambar.url }}" alt="" style="width: 100%;" />
+            <h3 class="title mb-4">{{ artikel.judul }}</h3>
+            <p class="text-dark">{{ artikel.konten }}</p>
+            <p class="text-dark" style="font-style: italic;">{{ artikel.created_at }}</p>
+          </div>
+        </div>
+      </div>
+    </section> 
+    <section class="py-5 mt-5 border-top">
+      <div class="container">
+        <div class="row mb-4">
+          <div class="col text-center">
+            <h3 class="mb-0 fw-bold">Lihat Artikel Lainnya</h3>
+            <hr class="w-25 mx-auto" style="border-top: 2px solid #ccc;">
+          </div>
+        </div>
+        <div class="row">
+          {% for artikel in artikel_lainnya %}
+          <div class="col-md-4 mb-4">
+            <div class="card h-100 shadow-sm border-0">
+              <div class="card-header p-0 overflow-hidden rounded-top">
+                <a href="{% url 'detail_artikel' artikel.id %}">
+                  <img src="{{ artikel.gambar.url }}" class="img-fluid w-100" style="object-fit: cover; height: 200px;" alt="thumbnail" loading="lazy">
+                </a>
+              </div>
+              <div class="card-body">
+                <span class="text-uppercase text-primary small fw-semibold">{{ artikel.kategori }}</span>
+                <a href="{% url 'detail_artikel' artikel.id %}" class="h5 d-block mt-2 text-dark fw-bold">{{ artikel.judul }}</a>
+                <p class="text-muted small mt-2">{{ artikel.konten|truncatechars:120 }}</p>
+                <div class="d-flex align-items-center mt-3">
+                  <img src="{% static 'landingpage/assets/img/team-2.jpg' %}" alt="..." class="rounded-circle" style="width: 30px; height: 30px;" loading="lazy">
+                  <div class="ps-2">
+                    <span class="d-block small">{{ artikel.author }}</span>
+                    <small class="text-muted">{{ artikel.created_at }}</small>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          {% endfor %}
+        </div>
+      </div>
+    </section>
+    
+  </div>
+{% endblock %}
