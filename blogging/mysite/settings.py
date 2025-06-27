@@ -93,6 +93,17 @@ WSGI_APPLICATION = 'mysite.wsgi.application'
 #     }
 # }
 
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'db_blog',           # Ganti dengan nama DB kamu
+        'USER': 'root',              # Ganti sesuai user MySQL
+        'PASSWORD': '',              # Ganti sesuai password
+        'HOST': 'localhost',         # Biasanya tetap localhost
+        'PORT': '3306',              # Port default
+    }
+}
+
 
 # Password validation
 # https://docs.djangoproject.com/en/5.2/ref/settings/#auth-password-validators
