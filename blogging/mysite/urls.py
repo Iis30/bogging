@@ -8,7 +8,7 @@ from mysite.views import *
 from mysite.autentication import *
 
 urlpatterns = [
-    path('admin/', admin.site.urls),  # Tambahkan '/' di akhir untuk konsistensi
+    path('admin/', admin.site.urls), 
 
     path('', index),
     path('artikel/<int:id>/', detail_artikel, name='detail_artikel'),
@@ -17,8 +17,10 @@ urlpatterns = [
     path('galeri/', galeri, name='galeri'),
     path('about/', about, name='about'),
 
-    # Gantilah semua ini jadi satu baris include:
-    path('dashboard/', include("artikel.urls")),  # <- ini satu-satunya yang boleh
+    path('dashboard/', include("artikel.urls")), 
+
+    path('admin_artikel_list', admin_artikel_list, name='admin_artikel_list'),
+    path('artikel_list', artikel_list, name='artikel_list'),
 
     # Autentikasi
     path('auth-login/', login, name='login'),

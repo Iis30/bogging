@@ -70,9 +70,18 @@ def dashboard(request):
     }
     return render(request, template_name, context)
 
-def artikel_list(request):
-    template_name ="dashboard/artikel_list.html"
+def admin_artikel_list(request):
+    template_name = "dashboard/admin/artikel_list.html"
+    artikel = ArtikelBlog.objects.all()
     context = {
-        "title" : "selamat datang"
+        "artikel": artikel
+    }
+    return render(request, template_name, context)
+
+def artikel_list(request):
+    template_name = "dashboard/artikel_list.html"
+    artikel = ArtikelBlog.objects.all()
+    context = {
+        "artikel": artikel
     }
     return render(request, template_name, context)
