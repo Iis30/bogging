@@ -1,5 +1,4 @@
-# Folder virtual environment
-venv/
+# Folder virtual environmentb
 ENV/
 
 # File database sqlite
