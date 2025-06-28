@@ -6,4 +6,4 @@ PyMySQL==1.1.1
 sqlparse==0.5.3
 tzdata==2025.2
 whitenoise
-psycopyg2-binary
+psycopg2-binary
